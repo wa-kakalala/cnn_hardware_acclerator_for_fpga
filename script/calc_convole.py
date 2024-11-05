@@ -15,10 +15,12 @@ for i in range(r):
         kernel[i,j] = kernel_origin[3-i-1,3-j-1]
 
 # 二维卷积核
-feature = np.zeros((10, 10))
-for i in range(10):
-    for j in range(10):
-        feature[i,j] = i*10 + j + 1
+cnt = 1
+feature = np.zeros((28, 28))
+for i in range(28):
+    for j in range(28):
+        feature[i,j] = cnt 
+        cnt += 1
 # 计算二维卷积
 conv_result = signal.convolve2d(feature, kernel, mode='valid')
 # 'full'（默认）：返回信号和卷积核的全卷积结果。
